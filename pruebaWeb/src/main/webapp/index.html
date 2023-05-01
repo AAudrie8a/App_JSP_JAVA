@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="../style/Login.css">
+</head>
+<body>
+	<div class="Form-Login">
+		<form class='Form_Login' onSubmit={handleSubmit}>
+            <div class='Input_Data'>
+              <label>
+                Email:
+              </label>
+              <input type="user" name="user" value={formData.user} onChange={handleChange} />
+            </div>
+            <div class='Input_Data'>
+              <label>
+                Contraseña:
+              </label>
+              <input type="password" name="password" value={formData.password} onChange={handleChange} />
+            </div>
+
+
+            <button >Iniciar Sesión</button>
+          </form>
+	</div>
+</body>
+</html>
