@@ -27,7 +27,8 @@ public class HolaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append("Hola que tal estás");
+		int suma = 2+3;
+		response.getWriter().append("Hola que tal estás: "+suma);
 	}
 
 	/**
