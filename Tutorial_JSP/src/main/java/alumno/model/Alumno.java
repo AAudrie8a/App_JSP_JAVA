@@ -8,10 +8,17 @@ public class Alumno {
 	public Alumno () {
 		
 	}
+	
+	
 	public Alumno(Integer carnet, String nombre, String apellido) {
 		this.carnet = carnet;
 		this.nombre = nombre;
 		this.apellido = apellido;
+	}
+	
+	public Alumno(Integer carnet, String nombre) {
+		this.carnet = carnet;
+		this.nombre = nombre;
 	}
 	
 	public Alumno(String nombre, String apellido) {
