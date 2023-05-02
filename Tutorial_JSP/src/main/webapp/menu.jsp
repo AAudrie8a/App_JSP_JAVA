@@ -1,0 +1,91 @@
+<!-- menu.jsp -->
+<style>
+.Menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* padding: 20px; */
+	background-color: #A3DE83;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	height: 110px;
+	/* Agregado */
+}
+
+.Encabezado h1 {
+	font-size: 50px;
+	font-weight: bold;
+	margin: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		sans-serif;
+	color: #fff;
+	padding: 20px;
+}
+
+.Botones {
+	display: inline-block;
+	/* Cambiado */
+	flex-direction: column;
+	height: 100%;
+	/* Agregado */
+	/* margin: 10px; */
+}
+
+.Botones button.Data {
+	/* background-color: #ADD8E6; */
+	flex: 1;
+	height: 100px;
+	color: #000;
+}
+
+.Botones button.Login {
+	/* background-color: #ADD8E6; */
+	color: #000;
+	flex: 1;
+	height: 100px;
+}
+
+.Botones button {
+	margin: 4px;
+	border: none;
+	width: 300px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+	background-color: rgba(173, 216, 230, 0.5);
+	/* color de fondo con transparencia */
+	border: none;
+	box-shadow: 0px 0px 0px 3px rgba(173, 216, 230, 0.5), 0px 0px 20px
+		rgba(173, 216, 230, 0.5);
+	/* efecto de borde y sombra */
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff;
+}
+
+.Botones button:hover {
+	background-color: #F7F39A;
+	/* border: 3px solid #ADD8E6; */
+	/* box-shadow: 0px 0px 20px #ADD8E6; */
+}
+
+Link:hover {
+	color: #fff;
+}
+</style>
+<div class="Menu">
+	<div class='Botones'>
+		<a style="text-decoration: none; color: #fff"
+			href="<%=request.getContextPath()%>/Modificar">
+			<button class='Data'>Modificar</button>
+		</a> <a style="text-decoration: none; color: #fff"
+			href="<%=request.getContextPath()%>/Login">
+			<button class='Login'>Notas</button>
+		</a>
+		<a style="text-decoration: none; color: #fff"
+			href="<%=request.getContextPath()%>/Companeros">
+			<button class='Login'>Compañeros</button>
+		</a>
+	</div>
+</div>
+
