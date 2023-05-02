@@ -87,21 +87,11 @@ button[type="submit"]:hover {
 	background-color: #F7F39A;
 }
 </style>
-<%
-    String action = request.getParameter("parameter1");
-	String id = request.getParameter("parameter2");
-    String formAction = "";
-	System.out.println(action+" "+id);
-    if (action != null && action.equals("modificar")) {
-        formAction = "Modificar";
-    } else {
-        formAction = "Registro";
-    }
-%>
+
 <div class="login-container">
 	<h1>Registro Alumno</h1>
 	<form class='Form_Login'
-		action="<%=request.getContextPath()%>/<%=formAction%>" method="post">
+		action="<%=request.getContextPath()%>/Registro" method="post">
 		<div class='Input_Data'>
 			<label> Nombre: </label> <input type="text" name="nombre" />
 		</div>
@@ -109,7 +99,6 @@ button[type="submit"]:hover {
 			<label> Apellido: </label> <input type="text" name="apellido" />
 		</div>
 
-		<input type="hidden" name="id" value="<%=id%>">
-		<button type="submit"><%=formAction%></button>
+		<button type="submit">Registrarse</button>
 	</form>
 </div>

@@ -7,7 +7,7 @@
 	/* padding: 20px; */
 	background-color: #A3DE83;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-	height: 110px;
+	height: 100%;
 	/* Agregado */
 }
 
@@ -76,15 +76,11 @@ Link:hover {
 <div class="Menu">
 	<div class='Botones'>
 		<a style="text-decoration: none; color: #fff"
-			href="<%=request.getContextPath()%>/Modificar">
-			<button class='Data'>Modificar</button>
+			href="/Tutorial_JSP/Registro">
+			<button class='Data'>Registro</button>
 		</a> <a style="text-decoration: none; color: #fff"
 			href="<%=request.getContextPath()%>/Login">
-			<button class='Login'>Notas</button>
-		</a>
-		<a style="text-decoration: none; color: #fff"
-			href="<%=request.getContextPath()%>/Companeros">
-			<button class='Login'>Compañeros</button>
+			<button class='Login'>Login</button>
 		</a>
 	</div>
 </div>

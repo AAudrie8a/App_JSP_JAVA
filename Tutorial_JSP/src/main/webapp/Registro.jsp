@@ -24,7 +24,7 @@
 				%>
 			</h1>
 		</div>
-		<%@ include file="menu.jsp" %>
+		<%@ include file="menu2.jsp" %>
 		<%@ include file="formRegistro.jsp" %>
 		
 	</div>
