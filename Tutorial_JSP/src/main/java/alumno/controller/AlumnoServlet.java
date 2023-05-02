@@ -19,11 +19,11 @@ import alumno.model.Alumno;
 /**
  * Servlet implementation class AlumnoServlet
  */
-@WebServlet(urlPatterns = { "/Registro", "/Login" , "/Modificar"})
+@WebServlet(urlPatterns = { "/Registro", "/Login" , "/Modificar", "/Companeros"})
 public class AlumnoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private AlumnoDao alumnoDao = new AlumnoDao();
+	private AlumnoDao alumnoDao;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -31,6 +31,7 @@ public class AlumnoServlet extends HttpServlet {
 	public AlumnoServlet() {
 		super();
 		// TODO Auto-generated constructor stub
+		alumnoDao = new AlumnoDao();
 	}
 
 	/**
@@ -44,13 +45,20 @@ public class AlumnoServlet extends HttpServlet {
 
 		switch (urlPattern) {
 		case "/Registro":
-			request.setAttribute("parametro1", "registrar");
-			request.setAttribute("parametro2", 0);
 			forwardToPage("/Registro.jsp", request, response);
 			break;
 		case "/Login":
 			forwardToPage("/Inicio.jsp", request, response);
 			break;
+		case "/Modificar":
+			forwardToPage("/Modificar.jsp", request, response);
+			break;
+		case "/Companeros":
+			request.setAttribute("users", alumnoDao.getAllUsers());
+            RequestDispatcher view = request.getRequestDispatcher("/Companeros.jsp");
+            view.forward(request, response);
+			break;
+			
 		default:
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			break;
@@ -83,7 +91,6 @@ public class AlumnoServlet extends HttpServlet {
 			case "/Login": {
 				String carnet = request.getParameter("carnet");
 				String nombre = request.getParameter("nombre");
-
 				Integer Carnet = Integer.parseInt(carnet);
 				iniciarSesion(Carnet, nombre, request, response);
 			}
@@ -93,6 +100,11 @@ public class AlumnoServlet extends HttpServlet {
 				String apellido = request.getParameter("apellido");
 				System.out.println(carnet+"--"+nombre+"--"+"apellido");
 				modificarAlumno(carnet,nombre, apellido, request, response);
+			}
+			case "/Companeros":{
+	            request.setAttribute("users", alumnoDao.getAllUsers());
+	            RequestDispatcher view = request.getRequestDispatcher("/Companeros.jsp");
+	            view.forward(request, response);
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + urlPattern);
@@ -165,16 +177,16 @@ public class AlumnoServlet extends HttpServlet {
 			if (result == 0) {
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
-				out.println("<script>alert('Error al iniciar Sesión!');</script>");
+				out.println("<script>alert('Usuario y contaseña incorrectos!');</script>");
 				out.close();
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/Inicio.jsp");
 				dispatcher.forward(request, response);
 			} else {
 				//RequestDispatcher dispatcher = request.getRequestDispatcher("/Exito.jsp");
 				//dispatcher.forward(request, response);
-				request.setAttribute("parametro1", "modificar");
-				request.setAttribute("parametro2", Carnet);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("formRegistro.jsp");
+				System.out.println("Carnet: "+Carnet);
+				request.setAttribute("parametro1", Integer.toString(Carnet));
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/Modificar.jsp");
 				dispatcher.forward(request, response);
 			}
 
